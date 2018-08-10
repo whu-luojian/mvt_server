@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset='utf-8' />
+	<title>jd-mapbox</title>
+	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+	<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.46.0/mapbox-gl.js'></script>
+	<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.46.0/mapbox-gl.css' rel='stylesheet' />
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+		}
+
+		#map {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div id='map'></div>
+	<script>
+		mapboxgl.accessToken = 'pk.eyJ1IjoibHVvamlhbiIsImEiOiJjaXJob2h2MHMwMWFxZzZucnE0MTFxcW81In0.KbXo4GZn7BVLtswjOzENpg';
+		//底图初始化
+		var map = new mapboxgl.Map({
+			container: 'map',
+			style: 'mapbox://styles/mapbox/light-v9',
+			center: [ 116.40830691262977, 39.916571389465844],
+			zoom: 10,
+			hash: true
+		});
+		//添加妥投点
+		map.on('load', function () {		
+			map.addLayer({
+				"id": "jd_code",
+				"type": "circle",
+				"source": {
+					type: 'vector',
+					url: 'http://localhost:3002/tilejson.json'
+				},
+				"source-layer": "code",
+				'paint': {
+					'circle-radius': 1,
+					'circle-color': '#000000'
+				}
+			})
+		})
+	</script>
+</body>
+</html>

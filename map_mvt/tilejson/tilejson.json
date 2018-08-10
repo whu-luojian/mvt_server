@@ -1,0 +1,22 @@
+{ 
+  "bounds":[ 
+    114.372627, 
+    36.24329, 
+    125.321487, 
+    43.864208
+  ],
+  "center": [
+    119.847057, 
+    40.053748999999996, 
+    9
+  ],
+  "format": "pbf",
+  "vector_layers":[{ 
+    "id": "code",
+    "description": "",
+    "minzoom": 0,
+    "maxzoom": 22
+  }],
+  "maxzoom": 14,
+  "minzoom": 9
+}
